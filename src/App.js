@@ -3,11 +3,34 @@ import "./styles.css";
 import BlogSection from "./BlogSection";
 import Login from "./Login";
 
+/*
+export defautlt function App(){
+  const [user, setUser]= React.useState();
+
+  handelLogin = ()=>{setUser("xxx");}
+  handelLogout = ()=>{ setUser("");}
+
+  React.useEffect(() => {
+    
+  }, []
+  );
+
+  return(<div className="App">
+        {user ? (
+          <BlogSection userName={user} onLogout={handleLogout} />
+        ) : (
+            <Login onSubmit={handleLogin} />
+        )}
+      </div>
+      )
+}
+*/
+
 export default class App extends React.Component {
   state = {
     user: ""
   };
-  handleLogin = userName => {
+  handleLogin = (userName) => {
     this.setState({ user: userName });
   };
   handleLogout = () => {
