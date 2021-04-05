@@ -1,45 +1,37 @@
 import React from "react";
 import PostList from "./PostList";
 
-/*
-function BlogSection(props){
-  const [posts, setPosts]=React.setState();
-  const [loading, setloading]=React.setState(true);
+export default function BlogSection(props) {
+  const [posts, setPosts] = React.useState();
+  const [loading, setLoading] = React.useState(true);
 
-  React.useEffect(()=>{
-      const fetchData= async()=>{
-        const response=fetch("https://jsonplaceholder.typicode.com/posts/")
-        const data= await response.json()
-        setPosts(data)
-        console.log("data fetch! Posts are ready!")
-      };
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const response = fetch("https://jsonplaceholder.typicode.com/posts/");
+      const data = await response.json();
+      setPosts(data);
+      console.log("data fetch! Posts are ready!");
+    };
 
-      posts ? setLoading(!loading) : fetchData();
+    posts ? setLoading(!loading) : fetchData();
 
-      return()=>{
-        console.log("Bye!");
-      };
-    },
-    [posts]
-  );
+    return () => {
+      console.log("Bye!");
+    };
+  }, [posts, loading]);
 
-  return(
+  return (
     <div className="App">
-        <h1>Welcome, {user}</h1>
-        <h2>Here are you favorite articles</h2>
-        {loading ? (
-          <h1>loading posts</h1>
-        ) : (
-          <PostList posts={posts} />
-        )}
+      <h1>Welcome, {props.user}</h1>
+      <h2>Here are you favorite articles</h2>
+      {loading ? <h1>loading posts</h1> : <PostList posts={posts} />}
 
-        <button onClick={onLogout}>Logout</button>
+      <button onClick={props.onLogout}>Logout</button>
     </div>
-  )
+  );
 }
 
-
-*/
+/*
 class BlogSection extends React.Component {
   state = {
     posts: [],
@@ -72,5 +64,4 @@ class BlogSection extends React.Component {
     );
   }
 }
-
-export default BlogSection;
+*/

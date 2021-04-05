@@ -1,39 +1,40 @@
 import React from "react";
 
-/* 
-function login(props){
-  const[name, setName]=React.useState();
-  cosnt [error, setError]=React.useState();
+export default function login(props) {
+  const [name, setName] = React.useState("");
+  const [error, setError] = React.useState();
 
-  handleChaneInput= (e)=>{
-      e.preventDefault();
-      setName(e.target.value);
-      console.log(name);
-    }
-  
-    handleSubmit = (e)=>{
-      e.preventDefault();
-      name? props.onSubmit(name) : (setError("Please provide a name");
-    }
+  const handleChangeInput = (e) => {
+    e.preventDefault();
+    setName(e.target.value);
+    console.log(name);
+  };
 
-  return(
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    name ? props.onSubmit(name) : setError("Please provide a name");
+  };
+
+  return (
     <>
-        <h1>Please Login</h1>
-        <form onSubmit={name}>
-          <label htmlFor="name">Name: </label>
-          <input
-            type="text"
-            value={name}
-            onChange={event => handleChangeInput(event)}
-            placeholder="Mary Poppins"
-          />
-          <button type="submit">Log in</button>
-          <p>{error}</p>
-        </form>
-      </>
+      <h1>Please Login</h1>
+      <form onSubmit={(event) => handleSubmit(event)}>
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          value={name}
+          onChange={(event) => handleChangeInput(event)}
+          placeholder="Mary Poppins"
+        />
+        <button type="submit">Log in</button>
+        <p>{error}</p>
+      </form>
+    </>
   );
 }
-*/
+
+/*
+
 class Login extends React.Component {
   state = {
     name: "",
@@ -73,5 +74,4 @@ class Login extends React.Component {
     );
   }
 }
-
-export default Login;
+*/
