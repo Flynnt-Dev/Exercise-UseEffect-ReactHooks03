@@ -4,7 +4,7 @@ import BlogSection from "./BlogSection";
 import Login from "./Login";
 
 export default function App() {
-  const [user, setUser] = React.useState();
+  const [user, setUser] = React.useState("");
 
   const handleLogin = (name) => {
     setUser(name);
