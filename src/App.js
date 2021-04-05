@@ -7,17 +7,18 @@ import Login from "./Login";
 export defautlt function App(){
   const [user, setUser]= React.useState();
 
-  handelLogin = ()=>{setUser("xxx");}
-  handelLogout = ()=>{ setUser("");}
+  handelLogin = (name)=>{setUser(name);}
+  handelLogout = ()=>{setUser("");}
 
-  React.useEffect(() => {
-    
-  }, []
-  );
+  React.useEffect(()=>{
+    if((prevState.user !== user) &&){
+      console.log("User has changed")
+    }
+  }); 
 
   return(<div className="App">
         {user ? (
-          <BlogSection userName={user} onLogout={handleLogout} />
+          <BlogSection user={user} onLogout={handleLogout} />
         ) : (
             <Login onSubmit={handleLogin} />
         )}

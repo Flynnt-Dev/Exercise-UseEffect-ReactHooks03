@@ -2,7 +2,7 @@ import React from "react";
 import PostList from "./PostList";
 
 /*
-function BlogSection(){
+function BlogSection(props){
   const [posts, setPosts]=React.setState();
   const [loading, setloading]=React.setState(true);
 
@@ -14,13 +14,13 @@ function BlogSection(){
         console.log("data fetch! Posts are ready!")
       };
 
-      posts? setLoading(!loading):fetchData();
+      posts ? setLoading(!loading) : fetchData();
 
       return()=>{
         console.log("Bye!");
       };
     },
-    []
+    [posts]
   );
 
   return(
