@@ -7,10 +7,14 @@ function BlogSection(){
   const [loading, setloading]=React.setState(true);
 
   React.useEffect(()=>{
-      fetch("https://jsonplaceholder.typicode.com/posts/")
-          .then((res) => res.json())
-          .then((posts) => setPosts(posts))
-          .finally((laoding) => setLoading(!loading));
+      const fetchData= async()=>{
+        const response=fetch("https://jsonplaceholder.typicode.com/posts/")
+        const data= await response.json()
+        setPosts(data)
+        console.log("data fetch! Posts are ready!")
+      };
+
+      posts? setLoading(!loading):fetchData();
 
       return()=>{
         console.log("Bye!");
@@ -21,7 +25,7 @@ function BlogSection(){
 
   return(
     <div className="App">
-        <h1>Welcome, {this.state.user}</h1>
+        <h1>Welcome, {user}</h1>
         <h2>Here are you favorite articles</h2>
         {loading ? (
           <h1>loading posts</h1>
@@ -29,7 +33,7 @@ function BlogSection(){
           <PostList posts={posts} />
         )}
 
-        <button onClick={this.state.onLogout()}>Logout</button>
+        <button onClick={onLogout}>Logout</button>
     </div>
   )
 }
