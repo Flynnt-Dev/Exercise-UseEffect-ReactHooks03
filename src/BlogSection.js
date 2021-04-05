@@ -5,18 +5,18 @@ export default function BlogSection(props) {
   const [posts, setPosts] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
-  const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/posts/")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setPosts(data);
-        console.log(data);
-      });
-  };
-
   React.useEffect(() => {
+    const fetchData = () => {
+      fetch("https://jsonplaceholder.typicode.com/posts/")
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setPosts(data);
+          console.log(data);
+        });
+    };
+
     posts ? setLoading(!loading) : fetchData();
     return () => {
       console.log("Bye!");
