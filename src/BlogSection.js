@@ -17,7 +17,7 @@ export default function BlogSection(props) {
         });
     };
 
-    posts ? setLoading(!loading) : fetchData();
+    posts !== null ? setLoading(!loading) : fetchData();
     return () => {
       console.log("Bye!");
     };
