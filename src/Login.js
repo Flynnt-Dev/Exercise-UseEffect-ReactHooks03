@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function login(props) {
+export default function Login(props) {
   const [name, setName] = React.useState("");
   const [error, setError] = React.useState();
 
