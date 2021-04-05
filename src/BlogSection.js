@@ -2,14 +2,18 @@ import React from "react";
 import PostList from "./PostList";
 
 export default function BlogSection(props) {
-  const [posts, setPosts] = React.useState();
+  const [posts, setPosts] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
 
-  const fetchData = async () => {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
-    const data = await response.json();
-    setPosts(data);
-    console.log("data fetch! Posts are ready!");
+  const fetchData = () => {
+    fetch("https://jsonplaceholder.typicode.com/posts/")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPosts(data);
+        console.log(data);
+      });
   };
 
   React.useEffect(() => {
