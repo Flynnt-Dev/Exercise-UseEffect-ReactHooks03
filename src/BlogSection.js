@@ -18,6 +18,7 @@ export default function BlogSection(props) {
         })
         .finally(setLoading(false));
     };
+
     fetchData();
   }, [posts]);
 

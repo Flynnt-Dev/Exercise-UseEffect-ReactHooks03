@@ -15,6 +15,12 @@ export default function Login(props) {
     name ? props.onSubmit(name) : setError("Please provide a name");
   };
 
+  React.useEffect(() => {
+    if (error) {
+      console.log(error);
+    }
+  }, [error]);
+
   return (
     <>
       <h1>Please Login</h1>
