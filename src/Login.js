@@ -7,7 +7,7 @@ export default function Login(props) {
   const handleChangeInput = (e) => {
     e.preventDefault();
     setName(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {

@@ -13,22 +13,23 @@ export default function BlogSection(props) {
         })
         .then((data) => {
           setPosts(data);
-          console.log(data);
-        });
+          // console.log("data : "+data);
+          // console.log("posts: "+posts)
+        })
+        .finally(setLoading(false));
     };
-
-    posts !== null ? setLoading(!loading) : fetchData();
-    return () => {
-      console.log("Bye!");
-    };
-  }, [posts, loading]);
+    fetchData();
+  }, [posts]);
 
   return (
     <div className="App">
       <h1>Welcome, {props.user}</h1>
       <h2>Here are you favorite articles</h2>
-      {loading ? <h1>loading posts</h1> : <PostList posts={posts} />}
-
+      {loading | (posts === null) ? (
+        <h1>loading posts</h1>
+      ) : (
+        <PostList posts={posts} />
+      )}
       <button onClick={props.onLogout}>Logout</button>
     </div>
   );
